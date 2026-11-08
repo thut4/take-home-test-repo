@@ -1,0 +1,282 @@
+{
+  "@@locale": "en",
+  "appTitle": "J'Donuts",
+  "onboardingTitle": "Round food for every mood",
+  "getStarted": "Let's get started",
+  "haveAccount": "Already have an account?",
+  "logIn": "Log in",
+  "continueWith": "Continue with {provider}",
+  "@continueWith": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      }
+    }
+  },
+  "comingSoonTitle": "{feature} is coming soon",
+  "@comingSoonTitle": {
+    "placeholders": {
+      "feature": {
+        "type": "String"
+      }
+    }
+  },
+  "socialUnavailable": "Signing in with {provider} isn't part of this demo. Use your phone number instead.",
+  "@socialUnavailable": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      }
+    }
+  },
+  "legalPrefix": "By continuing, you acknowledge that you have read and agree to our ",
+  "termsOfUse": "Terms of Use",
+  "legalAnd": " and ",
+  "privacyPolicy": "Privacy Policy",
+  "legalUnavailable": "The full {document} will open here in the live app.",
+  "@legalUnavailable": {
+    "placeholders": {
+      "document": {
+        "type": "String"
+      }
+    }
+  },
+  "close": "Close",
+  "phoneTitle": "Enter your phone number",
+  "phoneHint": "09 xxx xxx xxx",
+  "phoneErrorEmpty": "Enter your phone number.",
+  "phoneErrorInvalid": "Enter a Myanmar mobile number, like 09 254 135 592.",
+  "phoneNotRegistered": "This number isn't registered yet.",
+  "createAccount": "Create an account",
+  "phoneAlreadyRegistered": "This number already has an account.",
+  "logInInstead": "Log in instead",
+  "continueLabel": "Continue",
+  "back": "Back",
+  "stepProgress": "Step {step} of {total}",
+  "@stepProgress": {
+    "placeholders": {
+      "step": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "stepsComplete": "All steps complete",
+  "otpTitle": "Verify your number",
+  "otpSubtitle": "We've sent 6 digit OTP to {phone}",
+  "@otpSubtitle": {
+    "placeholders": {
+      "phone": {
+        "type": "String"
+      }
+    }
+  },
+  "otpWrong": "That code isn't right. {attemptsLeft, plural, =1{1 try left.} other{{attemptsLeft} tries left.}}",
+  "@otpWrong": {
+    "placeholders": {
+      "attemptsLeft": {
+        "type": "int"
+      }
+    }
+  },
+  "otpLocked": "Too many wrong codes. Request a new code to try again.",
+  "otpNoCode": "Didn't receive the code?",
+  "otpResendIn": "resend in ",
+  "minutesShort": " min",
+  "otpResend": "Resend code",
+  "otpResent": "We've sent a new code.",
+  "otpFieldLabel": "6-digit code",
+  "nameTitle": "What's your name?",
+  "firstNameHint": "First Name",
+  "lastNameHint": "Last Name",
+  "nameErrorRequired": "Enter your first name.",
+  "nameErrorTooLong": "Use 50 characters or fewer.",
+  "nameErrorCharacters": "Use letters and spaces only.",
+  "dobTitle": "What's your date of birth?",
+  "monthHint": "Month",
+  "dayHint": "Day",
+  "yearHint": "Year",
+  "dobErrorInvalid": "That date doesn't exist. Check the day and month.",
+  "dobErrorFuture": "Your date of birth can't be in the future.",
+  "dobErrorTooYoung": "You need to be at least {age} years old to join.",
+  "@dobErrorTooYoung": {
+    "placeholders": {
+      "age": {
+        "type": "int"
+      }
+    }
+  },
+  "welcomeTitle": "Welcome to the world of J'donuts",
+  "letsExplore": "Let's explore",
+  "genericError": "Something went wrong. Please try again.",
+  "networkError": "You're offline. Check your connection and try again.",
+  "memberTier": "{tier} member",
+  "@memberTier": {
+    "placeholders": {
+      "tier": {
+        "type": "String"
+      }
+    }
+  },
+  "pointsToNextTier": "{points} points left to become {tier} Member",
+  "@pointsToNextTier": {
+    "placeholders": {
+      "points": {
+        "type": "String"
+      },
+      "tier": {
+        "type": "String"
+      }
+    }
+  },
+  "topTier": "You've reached the top tier",
+  "notifications": "Notifications, {count} unread",
+  "@notifications": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "offlineBanner": "You're offline. Showing saved data.",
+  "refreshFailed": "Couldn't refresh. Showing saved data.",
+  "refreshed": "Up to date.",
+  "seeAll": "See all {section}",
+  "@seeAll": {
+    "placeholders": {
+      "section": {
+        "type": "String"
+      }
+    }
+  },
+  "sectionEmpty": "Nothing here yet. Check back soon.",
+  "sectionError": "Couldn't load this section.",
+  "retry": "Try again",
+  "discountOff": "{percent}% off",
+  "@discountOff": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "newBadge": "New",
+  "shopsTitle": "There are {count} J'Donut shops near you.",
+  "@shopsTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "exploreNow": "Explore now",
+  "orderOnline": "Order Online",
+  "priceMmk": "{price} MMK",
+  "@priceMmk": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "whatsThis": "What's this?",
+  "addToCart": "Add to cart",
+  "addedToCart": "Added {quantity} × {name} to your cart.",
+  "@addedToCart": {
+    "placeholders": {
+      "quantity": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "increaseQuantity": "Increase quantity",
+  "decreaseQuantity": "Decrease quantity",
+  "quantityValue": "Quantity {quantity}",
+  "@quantityValue": {
+    "placeholders": {
+      "quantity": {
+        "type": "int"
+      }
+    }
+  },
+  "productNotFound": "This product isn't available any more.",
+  "rewardsTitle": "J' Donuts Rewards",
+  "rewardsPill": "Rewards",
+  "totalPoints": "Total points",
+  "tierHereNow": "You're here now",
+  "tierRemaining": "{points} pts Remaining to become {tier}",
+  "@tierRemaining": {
+    "placeholders": {
+      "points": {
+        "type": "String"
+      },
+      "tier": {
+        "type": "String"
+      }
+    }
+  },
+  "tierSoon": "You'll be here soon",
+  "tierReached": "Reached",
+  "tabEarn": "Eat more earn more",
+  "tabGift": "Gift",
+  "earn": "Earn",
+  "redeem": "Redeem",
+  "pointsShort": "{points} pts",
+  "@pointsShort": {
+    "placeholders": {
+      "points": {
+        "type": "String"
+      }
+    }
+  },
+  "challengeProgress": "{progress}/{goal}",
+  "@challengeProgress": {
+    "placeholders": {
+      "progress": {
+        "type": "int"
+      },
+      "goal": {
+        "type": "int"
+      }
+    }
+  },
+  "earnTapped": "Points are added at the counter in the live app.",
+  "redeemTapped": "Gifts are redeemed at the counter in the live app.",
+  "rewardsEmpty": "No challenges right now. Check back soon.",
+  "navHome": "Home",
+  "navReward": "Reward",
+  "navOrder": "Order",
+  "navWallet": "Wallet",
+  "navSettings": "Settings",
+  "comingSoonBody": "This tab isn't part of the code test.",
+  "settingsTitle": "Settings",
+  "logOut": "Log out",
+  "logOutConfirmTitle": "Log out?",
+  "logOutConfirmBody": "You'll need your phone number and a code to log in again.",
+  "cancel": "Cancel",
+  "language": "Language",
+  "languageName": "English",
+  "signedInAs": "Signed in as {phone}",
+  "@signedInAs": {
+    "placeholders": {
+      "phone": {
+        "type": "String"
+      }
+    }
+  },
+  "cartCount": "Cart, {count} items",
+  "@cartCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "done": "Done",
+  "dobSheetTitle": "Date of birth"
+}
