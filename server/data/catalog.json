@@ -1,0 +1,240 @@
+{
+ "products": [
+  {
+   "id": "p_matcha",
+   "code": "JD022130",
+   "name": "Matcha Glazed Donut",
+   "priceMmk": 3000,
+   "isNew": true,
+   "discountPercent": null,
+   "image": "products/matcha.png",
+   "description": "Ceremonial-grade matcha glaze with a white chocolate drizzle. Only on the server catalogue, so it appears after the first refresh and stays cached for offline use."
+  },
+  {
+   "id": "p_coconut",
+   "code": "JD022123",
+   "name": "Coconut Donut",
+   "priceMmk": 3200,
+   "isNew": true,
+   "discountPercent": null,
+   "image": "products/coconut.png",
+   "description": "Enjoy our scrumptious donuts – soft, sweet, and satisfying in every bite. Choose from classic glazed, rich chocolate, or fun sprinkles. Dive into deliciousness now!"
+  },
+  {
+   "id": "p_strawberry_choc",
+   "code": "JD022124",
+   "name": "Strawberry Chocolate Donuts",
+   "priceMmk": 2800,
+   "isNew": false,
+   "discountPercent": 15,
+   "image": "products/strawberry_choc.png",
+   "description": "Strawberry icing striped with dark chocolate on a pillowy yeast ring. Our most-ordered donut, two years running."
+  },
+  {
+   "id": "p_dalgona",
+   "code": "JD031201",
+   "name": "Dalgona Creamy Coffee",
+   "priceMmk": 4500,
+   "isNew": false,
+   "discountPercent": null,
+   "image": "products/dalgona.png",
+   "description": "Whipped coffee foam over cold fresh milk. Stir it in for a creamy, caramel-like iced coffee."
+  },
+  {
+   "id": "p_mistletoe_box",
+   "code": "JD090101",
+   "name": "Mistletoe Romance box",
+   "priceMmk": 18000,
+   "isNew": true,
+   "discountPercent": 50,
+   "image": "products/mistletoe_box.jpg",
+   "description": "Seven festive donuts in one box: sprinkles, glazed, chocolate and caramel. Made for sharing under the mistletoe."
+  },
+  {
+   "id": "p_christmas_box",
+   "code": "JD090102",
+   "name": "Christmas Mini Family box",
+   "priceMmk": 15000,
+   "isNew": false,
+   "discountPercent": 30,
+   "image": "products/christmas_box.jpg",
+   "description": "Six of our favourite donuts in a holiday tray, sized for a family movie night."
+  },
+  {
+   "id": "p_santa_cookies",
+   "code": "JD090103",
+   "name": "Santa's favorite cookies set",
+   "priceMmk": 9500,
+   "isNew": false,
+   "discountPercent": 20,
+   "image": "products/santa_cookies.jpg",
+   "description": "Five soft-baked chocolate chip cookies. Leave one out for Santa."
+  },
+  {
+   "id": "p_pink_sprinkle",
+   "code": "JD022125",
+   "name": "Pink Sprinkle Donut",
+   "priceMmk": 2500,
+   "isNew": false,
+   "discountPercent": null,
+   "image": "products/pink_sprinkle.png",
+   "description": "Strawberry icing and a fistful of rainbow sprinkles. The one that started it all."
+  },
+  {
+   "id": "p_blueberry",
+   "code": "JD022126",
+   "name": "Blueberry Glazed Donut",
+   "priceMmk": 2600,
+   "isNew": true,
+   "discountPercent": null,
+   "image": "products/blueberry.png",
+   "description": "Real blueberry glaze with a white sugar crunch."
+  },
+  {
+   "id": "p_classic_glazed",
+   "code": "JD022101",
+   "name": "Classic Glazed Donut",
+   "priceMmk": 2000,
+   "isNew": false,
+   "discountPercent": null,
+   "image": "products/classic_glazed.png",
+   "description": "Light, airy and dipped in vanilla glaze while still warm."
+  },
+  {
+   "id": "p_choc_sprinkle",
+   "code": "JD022102",
+   "name": "Chocolate Sprinkle Donut",
+   "priceMmk": 2400,
+   "isNew": false,
+   "discountPercent": null,
+   "image": "products/choc_sprinkle.png",
+   "description": "Rich chocolate icing topped with rainbow sprinkles."
+  },
+  {
+   "id": "p_caramel",
+   "code": "JD022127",
+   "name": "Caramel Drizzle Donut",
+   "priceMmk": 2700,
+   "isNew": false,
+   "discountPercent": 20,
+   "image": "products/caramel.png",
+   "description": "Salted caramel icing finished with a vanilla drizzle."
+  },
+  {
+   "id": "p_iced_latte",
+   "code": "JD031202",
+   "name": "Iced Latte",
+   "priceMmk": 4000,
+   "isNew": false,
+   "discountPercent": 20,
+   "image": "products/iced_latte.png",
+   "description": "Double espresso poured over milk and ice."
+  },
+  {
+   "id": "p_iced_americano",
+   "code": "JD031203",
+   "name": "Iced Americano",
+   "priceMmk": 3500,
+   "isNew": false,
+   "discountPercent": null,
+   "image": "products/iced_americano.png",
+   "description": "Espresso, cold water and ice. Clean and strong."
+  }
+ ],
+ "sections": [
+  {
+   "id": "seasonal",
+   "title": "Seasonal specials",
+   "layout": "wide",
+   "showFlame": false,
+   "products": [
+    "p_mistletoe_box",
+    "p_christmas_box",
+    "p_santa_cookies"
+   ]
+  },
+  {
+   "id": "popular",
+   "title": "Popular",
+   "layout": "card",
+   "showFlame": true,
+   "products": [
+    "p_matcha",
+    "p_strawberry_choc",
+    "p_dalgona",
+    "p_coconut",
+    "p_pink_sprinkle",
+    "p_iced_americano"
+   ]
+  },
+  {
+   "id": "order_again",
+   "title": "Order again",
+   "layout": "card",
+   "showFlame": false,
+   "products": [
+    "p_caramel",
+    "p_iced_latte",
+    "p_classic_glazed",
+    "p_blueberry",
+    "p_choc_sprinkle"
+   ]
+  }
+ ],
+ "banners": [
+  {
+   "id": "b_central",
+   "tag": "New shop",
+   "title": "We are now at Central Boulevard",
+   "image": "banners/central_boulevard.jpg",
+   "style": "feature"
+  },
+  {
+   "id": "b_matcha",
+   "tag": "New",
+   "title": "Matcha Glazed is here",
+   "image": "products/matcha.png",
+   "style": "accent"
+  },
+  {
+   "id": "b_hot",
+   "tag": "50% off",
+   "title": "Hot deals this festive season",
+   "image": "banners/hot_deal.jpg",
+   "style": "primary"
+  },
+  {
+   "id": "b_points",
+   "tag": "Weekend",
+   "title": "Double points on every donut",
+   "image": "products/pink_sprinkle.png",
+   "style": "accent"
+  }
+ ],
+ "shops": [
+  {
+   "id": "s_myaynigone",
+   "name": "Myaynigone J'Donut",
+   "address": "2972 Pyay Road, Sanchaung Township, Yangon.",
+   "image": "shops/shop_1.jpg"
+  },
+  {
+   "id": "s_central",
+   "name": "Central Boulevard J'Donut",
+   "address": "Kabar Aye Pagoda Road, Mayangone Township, Yangon.",
+   "image": "shops/shop_2.jpg"
+  },
+  {
+   "id": "s_junction",
+   "name": "Junction City J'Donut",
+   "address": "Bogyoke Aung San Road, Pabedan Township, Yangon.",
+   "image": "shops/shop_3.jpg"
+  },
+  {
+   "id": "s_hledan",
+   "name": "Hledan J'Donut",
+   "address": "Hledan Junction, Kamayut Township, Yangon.",
+   "image": "shops/shop_4.jpg"
+  }
+ ]
+}
