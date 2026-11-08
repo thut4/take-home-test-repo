@@ -1,16 +1,20 @@
 import 'package:flutter/widgets.dart';
+import 'package:go_router/go_router.dart';
+import 'package:jdonuts/app/routes.dart';
 import 'package:jdonuts/design_system/design_system.dart';
 import 'package:jdonuts/features/home/domain/home_content.dart';
 import 'package:jdonuts/features/home/presentation/widgets/product_tiles.dart';
 import 'package:jdonuts/l10n/l10n.dart';
+
+// A section's title as displayed, with its flame when it has one.
+String sectionHeading(ProductSection section) =>
+    section.showFlame ? '${section.title} 🔥' : section.title;
 
 // A titled horizontal list ("Seasonal specials", "Popular", ...).
 class ProductSectionView extends StatelessWidget {
   const ProductSectionView({super.key, required this.section});
 
   final ProductSection section;
-
-  static const _flame = ' 🔥';
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +23,10 @@ class ProductSectionView extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         SectionHeader(
-          title: section.showFlame ? '${section.title}$_flame' : section.title,
-          onMore: () => showAppSnackbar(context, l10n.comingSoonBody),
+          title: sectionHeading(section),
+          onMore: section.products.isEmpty
+              ? null
+              : () => context.go(Routes.section(section.id)),
           moreLabel: l10n.seeAll(section.title),
         ),
         const SizedBox(height: AppSpacing.md),
@@ -55,7 +61,7 @@ class _ProductRow extends StatelessWidget {
             ProductTile(
               product: product,
               layout: section.layout,
-              sectionId: section.id,
+              origin: section.id,
             ),
           ],
         ],

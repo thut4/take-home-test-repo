@@ -476,6 +476,12 @@ abstract class AppLocalizations {
   /// **'Couldn\'t load this section.'**
   String get sectionError;
 
+  /// No description provided for @sectionNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'This section isn\'t available any more.'**
+  String get sectionNotFound;
+
   /// No description provided for @retry.
   ///
   /// In en, this message translates to:

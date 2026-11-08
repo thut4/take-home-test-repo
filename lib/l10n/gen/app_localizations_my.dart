@@ -232,6 +232,9 @@ class AppLocalizationsMy extends AppLocalizations {
   String get sectionError => 'ဤအပိုင်းကို ဖွင့်မရပါ။';
 
   @override
+  String get sectionNotFound => 'ဤအပိုင်း မရှိတော့ပါ။';
+
+  @override
   String get retry => 'ထပ်ကြိုးစားမည်';
 
   @override

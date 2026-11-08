@@ -12,33 +12,42 @@ import 'package:jdonuts/l10n/l10n.dart';
 String productHeroTag(String origin, String productId) =>
     'product-$origin-$productId';
 
-// One product in a Home section; tapping opens Product detail with a Hero
-// flight of the image.
+// One product in a section; tapping opens Product detail with a Hero flight
+// of the image. [origin] names where the tile is shown and must be unique
+// per screen, so the flight starts from this tile.
 class ProductTile extends StatelessWidget {
   const ProductTile({
     super.key,
     required this.product,
     required this.layout,
-    required this.sectionId,
+    required this.origin,
+    this.width,
   });
 
   final Product product;
   final SectionLayout layout;
-  final String sectionId;
+  final String origin;
+
+  // Defaults to the Home row size; the image keeps its proportions.
+  final double? width;
 
   bool get _wide => layout == SectionLayout.wide;
 
   @override
   Widget build(BuildContext context) {
-    final width = _wide ? AppSize.seasonalTileWidth : AppSize.productTileWidth;
-    final height = _wide
+    final baseWidth = _wide
+        ? AppSize.seasonalTileWidth
+        : AppSize.productTileWidth;
+    final baseHeight = _wide
         ? AppSize.seasonalTileHeight
         : AppSize.productTileImage;
+    final width = this.width ?? baseWidth;
+    final height = baseHeight * width / baseWidth;
     return AppPressable(
-      key: Key('product-tile-$sectionId-${product.id}'),
+      key: Key('product-tile-$origin-${product.id}'),
       semanticLabel: product.name,
       onPressed: () =>
-          context.push('${Routes.product(product.id)}?from=$sectionId'),
+          context.push('${Routes.product(product.id)}?from=$origin'),
       child: SizedBox(
         width: width,
         child: Column(
@@ -47,7 +56,7 @@ class ProductTile extends StatelessWidget {
             SizedBox(
               width: width,
               height: height,
-              child: _ImageFrame(product: product, wide: _wide, tag: sectionId),
+              child: _ImageFrame(product: product, wide: _wide, tag: origin),
             ),
             const SizedBox(height: AppSpacing.sm),
             Text(

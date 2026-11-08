@@ -63,6 +63,7 @@
   "seeAll": "{section} အားလုံး ကြည့်မည်",
   "sectionEmpty": "ယခု မရှိသေးပါ။ နောက်မှ ပြန်ကြည့်ပါ။",
   "sectionError": "ဤအပိုင်းကို ဖွင့်မရပါ။",
+  "sectionNotFound": "ဤအပိုင်း မရှိတော့ပါ။",
   "retry": "ထပ်ကြိုးစားမည်",
   "discountOff": "{percent}% လျှော့",
   "newBadge": "အသစ်",

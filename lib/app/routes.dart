@@ -13,7 +13,11 @@ abstract final class Routes {
   static const settings = '/settings';
   static const productPattern = '/product/:id';
 
+  /// Relative to [home], so the page stays in the Home tab.
+  static const sectionPattern = 'section/:id';
+
   static String product(String id) => '/product/$id';
+  static String section(String id) => '$home/section/$id';
 
   /// Screens reachable without a session.
   static bool isAuthFlow(String location) =>

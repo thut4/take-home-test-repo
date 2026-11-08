@@ -251,8 +251,8 @@ The ring, tier shields, progress art, hills and step ring are drawn with
   until the 5:00 countdown ends, as the brief specifies, which can mean a
   wait of almost five minutes after three wrong codes.
 - Add to cart persists to the database, but there is no cart screen.
-- Order and Wallet tabs are placeholders; See all, Explore now, Order online
-  and the bell show a snackbar or do nothing (display only, per the brief).
+- Order and Wallet tabs are placeholders; Explore now, Order online and the
+  bell show a snackbar or do nothing (display only, per the brief).
 - The Gift tab has no design; its cards reuse the challenge card with a
   Redeem button.
 - `connectivity_plus` is pinned to 7.0.0: 7.1+ needs the iOS 26 SDK (Xcode

@@ -11,6 +11,7 @@ import 'package:jdonuts/features/auth/presentation/screens/otp_screen.dart';
 import 'package:jdonuts/features/auth/presentation/screens/phone_screen.dart';
 import 'package:jdonuts/features/auth/presentation/screens/welcome_screen.dart';
 import 'package:jdonuts/features/home/presentation/home_screen.dart';
+import 'package:jdonuts/features/home/presentation/section_screen.dart';
 import 'package:jdonuts/features/product/presentation/product_detail_screen.dart';
 import 'package:jdonuts/features/rewards/presentation/rewards_screen.dart';
 import 'package:jdonuts/features/settings/presentation/settings_screen.dart';
@@ -74,11 +75,13 @@ final _authRoutes = <RouteBase>[
   _fade(Routes.welcome, const WelcomeScreen()),
 ];
 
-GoRoute _tab(String path, Widget child) => GoRoute(
-  path: path,
-  pageBuilder: (context, state) =>
-      NoTransitionPage<void>(key: state.pageKey, child: child),
-);
+GoRoute _tab(String path, Widget child, {List<RouteBase> routes = const []}) =>
+    GoRoute(
+      path: path,
+      pageBuilder: (context, state) =>
+          NoTransitionPage<void>(key: state.pageKey, child: child),
+      routes: routes,
+    );
 
 final _shellRoute = StatefulShellRoute.indexedStack(
   pageBuilder: (context, state, shell) => FadeThroughPage<void>(
@@ -86,7 +89,11 @@ final _shellRoute = StatefulShellRoute.indexedStack(
     child: AppShell(navigationShell: shell),
   ),
   branches: [
-    StatefulShellBranch(routes: [_tab(Routes.home, const HomeScreen())]),
+    StatefulShellBranch(
+      routes: [
+        _tab(Routes.home, const HomeScreen(), routes: [_sectionRoute]),
+      ],
+    ),
     StatefulShellBranch(routes: [_tab(Routes.rewards, const RewardsScreen())]),
     StatefulShellBranch(
       routes: [_tab(Routes.order, const _ComingSoon(ShellTab.order))],
@@ -98,6 +105,14 @@ final _shellRoute = StatefulShellRoute.indexedStack(
       routes: [_tab(Routes.settings, const SettingsScreen())],
     ),
   ],
+);
+
+final _sectionRoute = GoRoute(
+  path: Routes.sectionPattern,
+  pageBuilder: (context, state) => buildAdaptivePage<void>(
+    key: state.pageKey,
+    child: SectionScreen(sectionId: state.pathParameters['id']!),
+  ),
 );
 
 final _productRoute = GoRoute(

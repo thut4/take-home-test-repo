@@ -153,6 +153,7 @@
   },
   "sectionEmpty": "Nothing here yet. Check back soon.",
   "sectionError": "Couldn't load this section.",
+  "sectionNotFound": "This section isn't available any more.",
   "retry": "Try again",
   "discountOff": "{percent}% off",
   "@discountOff": {

@@ -234,6 +234,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get sectionError => 'Couldn\'t load this section.';
 
   @override
+  String get sectionNotFound => 'This section isn\'t available any more.';
+
+  @override
   String get retry => 'Try again';
 
   @override

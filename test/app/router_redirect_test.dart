@@ -19,6 +19,10 @@ void main() {
         Routes.onboarding,
       );
       expect(
+        authRedirect(const SignedOut(), Routes.section('popular')),
+        Routes.onboarding,
+      );
+      expect(
         authRedirect(const SignedOut(), Routes.welcome),
         Routes.onboarding,
       );
