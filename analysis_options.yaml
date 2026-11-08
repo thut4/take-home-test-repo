@@ -1,0 +1,27 @@
+include: package:very_good_analysis/analysis_options.yaml
+
+analyzer:
+  exclude:
+    - build/**
+    - android/**
+    - ios/**
+    - server/**
+    - lib/**/*.g.dart
+    - lib/**/*.freezed.dart
+    - lib/l10n/gen/**
+  errors:
+    invalid_annotation_target: ignore
+
+linter:
+  rules:
+    # Public API docs are kept for the design system and domain contracts,
+    # not enforced on every widget of an app.
+    public_member_api_docs: false
+    # Riverpod / go_router idioms read better without these.
+    lines_longer_than_80_chars: true
+    # Dart 3.13 constructor shorthands; kept off so the code reads like
+    # mainstream Flutter for reviewers.
+    unnecessary_type_name_in_constructor: false
+    unnecessary_const_in_enum_constructor: false
+    # Flutter convention keeps `super.key` first in widget constructors.
+    always_put_required_named_parameters_first: false
