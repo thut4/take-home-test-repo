@@ -1,14 +1,18 @@
 import 'package:jdonuts/core/network/api_client.dart';
+import 'package:jdonuts/core/network/server_health_check.dart';
 import 'package:jdonuts/core/result.dart';
 import 'package:jdonuts/features/home/data/catalog_dto.dart';
 
 // The public catalogue on the mock server (`/v1/...`).
 class CatalogRemoteDataSource {
-  CatalogRemoteDataSource(this._api);
+  CatalogRemoteDataSource(this._api, this._health);
 
   final ApiClient _api;
+  final ServerHealthCheck _health;
 
   Future<Result<CatalogDto>> fetchCatalog() async {
+    final unavailable = await _health.check();
+    if (unavailable != null) return Err(unavailable);
     final results = await (
       _list('/v1/products', ProductDto.fromJson),
       _list('/v1/sections', SectionDto.fromJson),

@@ -34,3 +34,17 @@ Dio createDio({required String baseUrl}) {
   }
   return dio;
 }
+
+/// Dio for the server health check: no retry and no logging, so a stopped
+/// server fails once and silently. The body is not parsed; only the status
+/// matters.
+Dio createHealthProbeDio({required String baseUrl}) {
+  return Dio(
+    BaseOptions(
+      baseUrl: baseUrl,
+      connectTimeout: NetworkTimeouts.connect,
+      receiveTimeout: NetworkTimeouts.receive,
+      responseType: ResponseType.plain,
+    ),
+  );
+}

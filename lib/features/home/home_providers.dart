@@ -7,7 +7,12 @@ import 'package:jdonuts/features/home/domain/home_content.dart';
 import 'package:jdonuts/features/home/domain/home_repository.dart';
 
 final Provider<CatalogRemoteDataSource> catalogRemoteDataSourceProvider =
-    Provider((ref) => CatalogRemoteDataSource(ref.watch(apiClientProvider)));
+    Provider(
+      (ref) => CatalogRemoteDataSource(
+        ref.watch(apiClientProvider),
+        ref.watch(serverHealthCheckProvider),
+      ),
+    );
 
 final homeRepositoryProvider = Provider<HomeRepository>(
   (ref) => DriftHomeRepository(

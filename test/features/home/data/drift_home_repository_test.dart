@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:jdonuts/core/database/app_database.dart';
 import 'package:jdonuts/core/failure.dart';
 import 'package:jdonuts/core/network/api_client.dart';
+import 'package:jdonuts/core/network/server_health_check.dart';
 import 'package:jdonuts/core/result.dart';
 import 'package:jdonuts/features/home/data/catalog_dto.dart';
 import 'package:jdonuts/features/home/data/catalog_remote_data_source.dart';
@@ -12,7 +13,8 @@ import 'package:jdonuts/features/home/domain/home_content.dart';
 import '../../../helpers/test_database.dart';
 
 class _FakeRemote extends CatalogRemoteDataSource {
-  _FakeRemote(this.response) : super(ApiClient(Dio()));
+  _FakeRemote(this.response)
+    : super(ApiClient(Dio()), ServerHealthCheck(Dio()));
 
   Result<CatalogDto> response;
 

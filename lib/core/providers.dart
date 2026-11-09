@@ -6,6 +6,7 @@ import 'package:jdonuts/core/database/app_database.dart';
 import 'package:jdonuts/core/env.dart';
 import 'package:jdonuts/core/network/api_client.dart';
 import 'package:jdonuts/core/network/dio_factory.dart';
+import 'package:jdonuts/core/network/server_health_check.dart';
 
 // Infrastructure every feature shares. Tests override any of these.
 
@@ -28,6 +29,14 @@ final dioProvider = Provider<Dio>((ref) {
 final apiClientProvider = Provider<ApiClient>(
   (ref) => ApiClient(ref.watch(dioProvider)),
 );
+
+final serverHealthCheckProvider = Provider<ServerHealthCheck>((ref) {
+  final probe = createHealthProbeDio(
+    baseUrl: ref.watch(envProvider).apiBaseUrl,
+  );
+  ref.onDispose(probe.close);
+  return ServerHealthCheck(probe);
+});
 
 final connectivityServiceProvider = Provider<ConnectivityService>((ref) {
   final probe = Dio();
