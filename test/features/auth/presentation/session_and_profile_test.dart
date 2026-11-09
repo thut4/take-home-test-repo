@@ -58,12 +58,33 @@ void main() {
       await app.dispose(tester);
     });
 
+    testWidgets('Settings shows the member and switches language', (
+      tester,
+    ) async {
+      final app = await AppHarness.pump(tester, signedInPhone: _demoPhone);
+      await tester.settle(const Duration(seconds: 2));
+      await tester.tap(find.byKey(const Key('nav-settings')));
+      await tester.settle(const Duration(seconds: 2));
+      expect(find.text('Hania'), findsOneWidget);
+      expect(find.text('Signed in as $_demoPhone'), findsOneWidget);
+      expect(find.text('English'), findsOneWidget);
+      expect(find.text('မြန်မာ'), findsOneWidget);
+      expect(find.text('Language'), findsOneWidget);
+      await tester.tap(find.byKey(const Key('language-row')));
+      await tester.settle(const Duration(seconds: 2));
+      expect(find.text('ဘာသာစကား'), findsOneWidget);
+      await tester.tap(find.byKey(const Key('language-row')));
+      await tester.settle(const Duration(seconds: 2));
+      expect(find.text('Language'), findsOneWidget);
+      await app.dispose(tester);
+    });
+
     testWidgets('Log out in Settings returns to Onboarding', (tester) async {
       final app = await AppHarness.pump(tester, signedInPhone: _demoPhone);
       await tester.settle(const Duration(seconds: 2));
       await tester.tap(find.byKey(const Key('nav-settings')));
       await tester.settle();
-      await tester.tap(find.byKey(const Key('logout-row')));
+      await tester.tap(find.byKey(const Key('logout-button')));
       await tester.settle();
       await tester.tap(find.text('Log out').last);
       await tester.settle(const Duration(seconds: 2));

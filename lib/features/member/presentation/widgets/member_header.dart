@@ -6,12 +6,21 @@ import 'package:jdonuts/design_system/design_system.dart';
 import 'package:jdonuts/features/member/domain/member.dart';
 import 'package:jdonuts/l10n/l10n.dart';
 
-// Member header on the peach band: photo, name, tier, points to the next
-// tier and the notification bell.
-class HomeHeader extends StatelessWidget {
-  const HomeHeader({super.key, required this.member});
+// Member header on the peach band: photo, name, tier, a white status pill
+// and, optionally, the notification bell.
+class MemberHeader extends StatelessWidget {
+  const MemberHeader({
+    super.key,
+    required this.member,
+    this.statusLabel,
+    this.showBell = true,
+  });
 
   final Member member;
+
+  /// Text in the pill. Defaults to the points left to the next tier.
+  final String? statusLabel;
+  final bool showBell;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +51,7 @@ class HomeHeader extends StatelessWidget {
                 ],
               ),
             ),
-            _Bell(count: member.notificationCount),
+            if (showBell) _Bell(count: member.notificationCount),
           ],
         ),
         const SizedBox(height: AppSpacing.md),
@@ -56,12 +65,13 @@ class HomeHeader extends StatelessWidget {
             borderRadius: BorderRadius.circular(AppRadius.pill),
           ),
           child: Text(
-            next == null
-                ? l10n.topTier
-                : l10n.pointsToNextTier(
-                    l10n.number(member.pointsToNextTier),
-                    next.name,
-                  ),
+            statusLabel ??
+                (next == null
+                    ? l10n.topTier
+                    : l10n.pointsToNextTier(
+                        l10n.number(member.pointsToNextTier),
+                        next.name,
+                      )),
             style: theme.text.caption.copyWith(color: theme.colors.onSurface),
           ),
         ),
@@ -148,6 +158,8 @@ class _Bell extends StatelessWidget {
 class HeaderBadgePainter extends CustomPainter {
   const HeaderBadgePainter();
 
+  static const double size = 150;
+
   static const _points = 6;
   static const _starPoints = 5;
 
@@ -196,8 +208,8 @@ class HeaderBadgePainter extends CustomPainter {
 }
 
 // Header placeholder while the member record loads.
-class HomeHeaderSkeleton extends StatelessWidget {
-  const HomeHeaderSkeleton({super.key});
+class MemberHeaderSkeleton extends StatelessWidget {
+  const MemberHeaderSkeleton({super.key});
 
   static const _nameWidth = 120.0;
   static const _pillWidth = 220.0;

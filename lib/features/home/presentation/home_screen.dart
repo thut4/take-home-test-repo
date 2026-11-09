@@ -6,11 +6,11 @@ import 'package:jdonuts/design_system/design_system.dart';
 import 'package:jdonuts/features/home/home_providers.dart';
 import 'package:jdonuts/features/home/presentation/controllers/catalog_sync_controller.dart';
 import 'package:jdonuts/features/home/presentation/widgets/banner_carousel.dart';
-import 'package:jdonuts/features/home/presentation/widgets/home_header.dart';
 import 'package:jdonuts/features/home/presentation/widgets/home_skeletons.dart';
 import 'package:jdonuts/features/home/presentation/widgets/product_section_view.dart';
 import 'package:jdonuts/features/home/presentation/widgets/shops_section.dart';
 import 'package:jdonuts/features/member/member_providers.dart';
+import 'package:jdonuts/features/member/presentation/widgets/member_header.dart';
 import 'package:jdonuts/features/shell/presentation/shell_metrics.dart';
 import 'package:jdonuts/l10n/l10n.dart';
 
@@ -70,7 +70,6 @@ class HomeScreen extends ConsumerWidget {
 class _HeaderBand extends ConsumerWidget {
   const _HeaderBand();
 
-  static const _badgeSize = 150.0;
   static const _warmShare = 0.62;
 
   @override
@@ -93,8 +92,8 @@ class _HeaderBand extends ConsumerWidget {
           const Positioned(
             right: -AppSpacing.xxl,
             top: -AppSpacing.xl,
-            width: _badgeSize,
-            height: _badgeSize,
+            width: HeaderBadgePainter.size,
+            height: HeaderBadgePainter.size,
             child: CustomPaint(painter: HeaderBadgePainter()),
           ),
           Column(
@@ -109,7 +108,7 @@ class _HeaderBand extends ConsumerWidget {
                 ),
                 child: switch (member) {
                   AsyncData(:final value) => AppEntrance(
-                    child: HomeHeader(member: value),
+                    child: MemberHeader(member: value),
                   ),
                   AsyncError() => AppInlineMessage(
                     icon: AppIcons.error,
@@ -117,7 +116,7 @@ class _HeaderBand extends ConsumerWidget {
                     actionLabel: l10n.retry,
                     onAction: () => ref.invalidate(currentMemberProvider),
                   ),
-                  _ => const HomeHeaderSkeleton(),
+                  _ => const MemberHeaderSkeleton(),
                 },
               ),
               switch (banners) {
