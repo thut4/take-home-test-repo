@@ -263,4 +263,4 @@ The ring, tier shields, progress art, hills and step ring are drawn with
 
 ## Time spent
 
-_TODO: fill in before submitting._
+- About 1.5 days
