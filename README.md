@@ -36,6 +36,22 @@ emulator and `http://localhost:8080` on the iOS Simulator. Override with
 `--dart-define=API_BASE_URL=http://<host>:8080`. The app works fully without
 the server; it just keeps its bundled data.
 
+On a physical Android phone, neither default reaches your computer, so use
+one of these with the server running:
+
+```bash
+# Same Wi-Fi as the computer, no cable needed (recommended for offline tests).
+# On macOS, `ipconfig getifaddr en0` prints the computer's IP.
+flutter run --dart-define=API_BASE_URL=http://<computer-ip>:8080
+
+# USB. Run adb reverse again whenever the phone is reconnected.
+adb reverse tcp:8080 tcp:8080
+flutter run --dart-define=API_BASE_URL=http://localhost:8080
+```
+
+If pull to refresh says "Couldn't refresh. Showing saved data.", the app
+can't reach the server at that address.
+
 ### Tests
 
 ```bash
@@ -70,6 +86,12 @@ flutter build ios --simulator                  # build/ios/iphonesimulator/Runne
   itself (or pull to refresh). With the mock server running, a refresh
   adds the server-only *Matcha Glazed Donut* and its banner, and its image
   stays cached for the next offline launch.
+- **Offline on a physical phone:** turn on airplane mode and check Wi-Fi is
+  off too, since Wi-Fi can stay on in airplane mode. The offline bar tracks
+  the internet; the "Couldn't refresh" message tracks the mock server, so
+  stopping only the server shows the message without the bar. The USB tunnel
+  keeps working in airplane mode, so on the USB setup pull to refresh still
+  succeeds unless you stop the server as well.
 - **Language:** Settings → Language switches English ↔ Burmese.
 
 ## Architecture

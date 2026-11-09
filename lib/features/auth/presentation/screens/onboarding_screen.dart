@@ -251,6 +251,7 @@ class _LogInPromptState extends State<_LogInPrompt> {
             text: l10n.logIn,
             recognizer: _tap,
             style: TextStyle(
+              fontSize: theme.text.subtitle.fontSize,
               color: theme.colors.accent,
               fontWeight: FontWeight.w700,
             ),
