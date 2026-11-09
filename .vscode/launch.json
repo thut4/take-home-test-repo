@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      // Physical phone on USB. Needs the mock server running and
+      // `adb reverse tcp:8080 tcp:8080` (lost when the phone is unplugged).
+      "name": "J'Donuts (USB phone)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "toolArgs": ["--dart-define=API_BASE_URL=http://localhost:8080"]
+    },
+    {
+      // Android emulator or iOS Simulator: the default server address works.
+      "name": "J'Donuts (emulator/simulator)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart"
+    }
+  ]
+}

@@ -334,11 +334,10 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get earnTapped => 'Points are added at the counter in the live app.';
+  String get earnTapped => 'Points are added.';
 
   @override
-  String get redeemTapped =>
-      'Gifts are redeemed at the counter in the live app.';
+  String get redeemTapped => 'Gifts are redeemed.';
 
   @override
   String get rewardsEmpty => 'No challenges right now. Check back soon.';

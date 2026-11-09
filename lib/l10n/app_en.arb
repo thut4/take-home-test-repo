@@ -246,8 +246,8 @@
       }
     }
   },
-  "earnTapped": "Points are added at the counter in the live app.",
-  "redeemTapped": "Gifts are redeemed at the counter in the live app.",
+  "earnTapped": "Points are added.",
+  "redeemTapped": "Gifts are redeemed.",
   "rewardsEmpty": "No challenges right now. Check back soon.",
   "navHome": "Home",
   "navReward": "Reward",

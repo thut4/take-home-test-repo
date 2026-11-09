@@ -48,9 +48,13 @@ class ProductDetailScreen extends ConsumerWidget {
           ),
           Expanded(
             child: switch (ref.watch(productProvider(productId))) {
-              AsyncData(:final value) => _ProductBody(
-                product: value,
-                heroTag: productHeroTag(heroOrigin ?? 'direct', value.id),
+              // Keeps snackbars clear of the add-to-cart button.
+              AsyncData(:final value) => AppSnackbarInset(
+                bottom: AppSize.buttonHeight + AppSpacing.lg,
+                child: _ProductBody(
+                  product: value,
+                  heroTag: productHeroTag(heroOrigin ?? 'direct', value.id),
+                ),
               ),
               AsyncError(:final error) => AppErrorView(
                 title: error is NotFoundFailure
@@ -88,12 +92,19 @@ class _ProductBodyState extends ConsumerState<_ProductBody> {
         .read(productRepositoryProvider)
         .addToCart(widget.product.id, _quantity);
     if (!mounted) return;
-    setState(() => _adding = false);
     final l10n = context.l10n;
-    showAppSnackbar(context, switch (result) {
+    // Built before the reset so it reports the quantity that was added.
+    final message = switch (result) {
       Ok() => l10n.addedToCart(_quantity, widget.product.name),
       Err(:final failure) => l10n.failureMessage(failure),
+    };
+    setState(() {
+      _adding = false;
+      // Adds accumulate in the cart, so a leftover quantity would make a
+      // second tap add it again. On failure it stays, ready to retry.
+      if (result is Ok) _quantity = QuantityLimits.min;
     });
+    showAppSnackbar(context, message);
   }
 
   @override

@@ -647,13 +647,13 @@ abstract class AppLocalizations {
   /// No description provided for @earnTapped.
   ///
   /// In en, this message translates to:
-  /// **'Points are added at the counter in the live app.'**
+  /// **'Points are added.'**
   String get earnTapped;
 
   /// No description provided for @redeemTapped.
   ///
   /// In en, this message translates to:
-  /// **'Gifts are redeemed at the counter in the live app.'**
+  /// **'Gifts are redeemed.'**
   String get redeemTapped;
 
   /// No description provided for @rewardsEmpty.

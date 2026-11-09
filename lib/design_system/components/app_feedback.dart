@@ -36,11 +36,46 @@ class AppBadge extends StatelessWidget {
   }
 }
 
-/// Brief message at the bottom of the screen.
+/// Tells [showAppSnackbar] how much of the bottom of the screen, above the
+/// safe area, is covered by chrome drawn over the page (a floating navigation
+/// bar). The page's scaffold can't see that chrome, so can't avoid it itself.
+class AppSnackbarInset extends InheritedWidget {
+  const AppSnackbarInset({
+    super.key,
+    required this.bottom,
+    required super.child,
+  });
+
+  final double bottom;
+
+  // A one-off read when the snackbar is shown, so no rebuild dependency.
+  static double of(BuildContext context) =>
+      context.getInheritedWidgetOfExactType<AppSnackbarInset>()?.bottom ?? 0;
+
+  @override
+  bool updateShouldNotify(AppSnackbarInset oldWidget) =>
+      bottom != oldWidget.bottom;
+}
+
+/// Brief message at the bottom of the screen, above any [AppSnackbarInset].
 void showAppSnackbar(BuildContext context, String message) {
+  final inset = AppSnackbarInset.of(context);
   material.ScaffoldMessenger.maybeOf(context)
     ?..hideCurrentSnackBar()
-    ..showSnackBar(material.SnackBar(content: Text(message)));
+    ..showSnackBar(
+      material.SnackBar(
+        content: Text(message),
+        // Null keeps Material's default margin on screens with no bar.
+        margin: inset == 0
+            ? null
+            : EdgeInsets.fromLTRB(
+                AppSpacing.lg,
+                AppSpacing.xs,
+                AppSpacing.lg,
+                inset + AppSpacing.md,
+              ),
+      ),
+    );
 }
 
 /// Placeholder bottom sheet for features outside the test's scope

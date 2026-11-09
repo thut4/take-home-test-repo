@@ -32,7 +32,12 @@ class AppShell extends ConsumerWidget {
       style: context.appTheme.text.body,
       child: Stack(
         children: [
-          Positioned.fill(child: navigationShell),
+          Positioned.fill(
+            child: AppSnackbarInset(
+              bottom: AppSize.bottomNavHeight,
+              child: navigationShell,
+            ),
+          ),
           Align(
             alignment: Alignment.bottomCenter,
             child: BottomNavBar(
